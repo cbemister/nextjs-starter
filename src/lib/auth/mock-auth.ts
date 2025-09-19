@@ -42,7 +42,9 @@ export class MockAuthService implements IAuthService {
   private validateMockToken(token: string): User | null {
     try {
       const parts = token.split('.');
-      if (parts.length !== 3) return null;
+      if (parts.length !== 3) {
+        return null;
+      }
       
       const payload = JSON.parse(atob(parts[1]));
       
@@ -149,7 +151,9 @@ export class MockAuthService implements IAuthService {
   async getCurrentUser(): Promise<User | null> {
     try {
       const token = localStorage.getItem(TOKEN_KEY);
-      if (!token) return null;
+      if (!token) {
+        return null;
+      }
 
       const user = this.validateMockToken(token);
       if (!user) {
@@ -168,11 +172,12 @@ export class MockAuthService implements IAuthService {
 
   async refreshToken(): Promise<string | null> {
     const currentUser = await this.getCurrentUser();
-    if (!currentUser) return null;
+    if (!currentUser) {
+      return null;
+    }
 
     const newToken = this.generateMockToken(currentUser);
     localStorage.setItem(TOKEN_KEY, newToken);
     return newToken;
   }
 }
-
