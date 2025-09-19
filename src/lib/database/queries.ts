@@ -270,7 +270,7 @@ export class ProfileQueries {
     linkedinUsername?: string;
     preferences?: Record<string, any>;
   }): Promise<void> {
-    const setClause = [];
+    const setClause: string[] = [];
     const values: any[] = [];
 
     Object.entries(updates).forEach(([key, value]) => {
@@ -296,4 +296,3 @@ export class ProfileQueries {
     `;
   }
 }
-
