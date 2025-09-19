@@ -1,0 +1,18 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+}
+
+/* Mobile-first responsive design */
+@media (min-width: 768px) {
+  .layout {
+    /* On larger screens, we might want different layout behavior */
+  }
+}
+
