@@ -111,6 +111,7 @@ export const mockConsole = () => {
   const originalConsole = { ...console };
   
   beforeEach(() => {
+    // eslint-disable-next-line no-console
     console.log = jest.fn();
     console.warn = jest.fn();
     console.error = jest.fn();
@@ -141,4 +142,3 @@ export const createMockRouter = (overrides = {}) => ({
   isFallback: false,
   ...overrides,
 });
-

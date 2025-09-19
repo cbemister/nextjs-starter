@@ -103,7 +103,9 @@ export class RealAuthService implements IAuthService {
   async getCurrentUser(): Promise<User | null> {
     try {
       const token = localStorage.getItem('auth_token');
-      if (!token) return null;
+      if (!token) {
+      return null;
+    }
 
       const response = await fetch(`${this.baseUrl}/auth/me`, {
         headers: {
@@ -156,4 +158,3 @@ export class RealAuthService implements IAuthService {
     }
   }
 }
-
